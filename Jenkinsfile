@@ -34,10 +34,10 @@ pipeline{
     }
 post{
     failure{
-        setGitHubPullRequestStatus context: 'Testing automation', state: 'FAILURE'
+        setGitHubPullRequestStatus context: 'The_final_job', state: 'FAILURE'
         }
     success{
-        setGitHubPullRequestStatus context: 'Testing automation', state: 'SUCCESS'
+        setGitHubPullRequestStatus context: 'The_final_job', state: 'SUCCESS'
         }
     }
 }
