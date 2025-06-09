@@ -25,20 +25,20 @@ pipeline{
         {
             steps{
                 script{
-                    setGitHubPullRequestStatus context: 'Build', state: "PENDING"
+                    setGitHubPullRequestStatus context: 'Test', state: "PENDING"
                     echo 'Running test'
                     sh 'mvn test -e'
-                    setGitHubPullRequestStatus context: 'Build', state: "SUCCESS"
+                    setGitHubPullRequestStatus context: 'Test', state: "SUCCESS"
                 }
             }
         }
     }
 post{
     failure{
-        setGitHubPullRequestStatus context: 'Testing automation', state: 'FAILURE'
+        setGitHubPullRequestStatus context: 'The_automate_job', state: 'FAILURE'
         }
     success{
-        setGitHubPullRequestStatus context: 'Testing automation', state: 'SUCCESS'
+        setGitHubPullRequestStatus context: 'The_automate_job', state: 'SUCCESS'
         }
     }
 }
